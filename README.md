@@ -2,7 +2,9 @@
 
 - Create React APP
 - Configured Tailwind CSS
--
+- Configured Header
+- Create the login form
+- use Formik for forms in the react application
 
 # Features
 
