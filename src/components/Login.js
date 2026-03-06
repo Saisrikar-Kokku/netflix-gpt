@@ -7,16 +7,17 @@ import {
   updateProfile,
 } from "firebase/auth";
 import { auth } from "../utils/firebase";
-import { useNavigate } from "react-router-dom";
+
 import { useDispatch } from "react-redux";
 import { addUser } from "../utils/userSlice";
+import { USER_AVATAR } from "../utils/constants";
 const Login = () => {
   const [isSignInForm, setisSignInForm] = useState(true);
   const [errorMessage, seterrorMessage] = useState(null);
   const name = useRef(null);
   const email = useRef(null);
   const password = useRef(null);
-  const navigate = useNavigate();
+
   const dispatch = useDispatch();
 
   const toggleSignInForm = () => {
@@ -44,7 +45,7 @@ const Login = () => {
         const user = userCredential.user;
         updateProfile(user, {
           displayName: name?.current?.value,
-          photoURL: "https://avatars.githubusercontent.com/u/149705299?v=4",
+          photoURL: USER_AVATAR,
         })
           .then(() => {
             // Profile updated!
@@ -57,15 +58,12 @@ const Login = () => {
                 photoURL: photoURL,
               }),
             );
-            navigate("/browse");
             // ...
           })
           .catch((error) => {
             // An error occurred
             seterrorMessage(error.message);
           });
-        // console.log(user);
-        navigate("/browse");
       } else {
         // Sign in logic
         const userCredential = await signInWithEmailAndPassword(
@@ -75,7 +73,6 @@ const Login = () => {
         );
         const user = userCredential.user;
         // console.log(user);
-        navigate("/browse");
       }
 
       seterrorMessage(null);
