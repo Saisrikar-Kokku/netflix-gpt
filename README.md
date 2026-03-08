@@ -18,7 +18,16 @@
 - Update Profile Api call is done
 - Un subscribed to the onAuthStateChanged call back
 - Added hardcoded vales to the constants file
+- Register TMDB API & create an app to get the access token
 - fetch Mpvies from TMDB using their API
+- custom hook for now Playing movies
+- create movieSlice
+- update store with movies Data
+- Planning for MainContainer & secondary container
+- fecth data for trailer video
+- Update store with trailer video data
+- Embeded the Youtube video and make it autoplay and mute
+- used Tailwind classes to make the Main Container look awesome
 
 # Bug fixes
 
